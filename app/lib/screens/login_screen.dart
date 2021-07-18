@@ -1,4 +1,3 @@
-import 'package:app/screens/forgot_screen.dart';
 import 'package:app/utilities/cons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -13,10 +12,6 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Login UI',
       debugShowCheckedModeBanner: false,
-      routes: <String, WidgetBuilder>{
-        '/register': (BuildContext context) => new RegisterScreen(),
-        '/forgot': (BuildContext context) => new ForgotScreen(),
-      },
     );
   }
 }
@@ -27,8 +22,6 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  bool _rememberMe = false;
-
   Widget _buildEmailTF() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -109,40 +102,13 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 
-  Widget _buildRememberMeCheckbox() {
-    return Container(
-      height: 20.0,
-      child: Row(
-        children: <Widget>[
-          Theme(
-            data: ThemeData(unselectedWidgetColor: Colors.white),
-            child: Checkbox(
-              value: _rememberMe,
-              checkColor: Colors.green,
-              activeColor: Colors.white,
-              onChanged: (value) {
-                setState(() {
-                  _rememberMe = value!;
-                });
-              },
-            ),
-          ),
-          Text(
-            'Remember me',
-            style: kLabelStyle,
-          ),
-        ],
-      ),
-    );
-  }
-
   Widget _buildLoginBtn() {
     return Container(
       padding: EdgeInsets.symmetric(vertical: 30.0),
       width: double.infinity,
       child: RaisedButton(
         elevation: 20.0,
-        onPressed: () => print('Login Button Pressed'),
+        onPressed: () => {Navigator.pushNamed(context, "/home")},
         padding: EdgeInsets.all(25.0),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(40.0),
@@ -165,14 +131,7 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget _buildSignInWithText() {
     return Column(
       children: <Widget>[
-        Text(
-          '- OR -',
-          style: TextStyle(
-            color: Colors.white,
-            fontWeight: FontWeight.w400,
-          ),
-        ),
-        SizedBox(height: 20.0),
+        SizedBox(height: 30.0),
         Text(
           'Sign in with',
           style: kLabelStyle,
