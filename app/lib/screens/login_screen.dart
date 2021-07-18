@@ -1,3 +1,4 @@
+import 'package:app/screens/forgot_screen.dart';
 import 'package:app/utilities/cons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       routes: <String, WidgetBuilder>{
         '/register': (BuildContext context) => new RegisterScreen(),
-        //'/forgot': (BuildContext context) => new ForgotPage(),
+        '/forgot': (BuildContext context) => new ForgotScreen(),
       },
     );
   }
@@ -94,7 +95,7 @@ class _LoginScreenState extends State<LoginScreen> {
     return Container(
       alignment: Alignment.center,
       child: FlatButton(
-        onPressed: () => {Navigator.pushNamed(context, "/register")},
+        onPressed: () => {Navigator.pushNamed(context, "/forgot")},
         padding: EdgeInsets.only(top: 15.0),
         child: Text(
           'Forgot Password',

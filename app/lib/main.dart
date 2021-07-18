@@ -1,3 +1,4 @@
+import 'package:app/screens/forgot_screen.dart';
 import 'package:app/screens/register_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:app/screens/login_screen.dart';
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       routes: <String, WidgetBuilder>{
         '/register': (BuildContext context) => new RegisterScreen(),
-        // '/forgot': (BuildContext context) => new ForgotPage(),
+        '/forgot': (BuildContext context) => new ForgotScreen(),
       },
       home: LoginScreen(),
     );
