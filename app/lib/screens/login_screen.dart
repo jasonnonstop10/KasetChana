@@ -79,10 +79,10 @@ class _LoginScreenState extends State<LoginScreen> {
         onPressed: () => print('Forgot Password Button Pressed'),
         padding: EdgeInsets.only(top: 15.0),
         child: Text(
-          'Forgot Password?',
+          'Forgot Password',
           style: TextStyle(
             color: Colors.greenAccent,
-            fontSize: 14.0,
+            fontSize: 15.0,
             fontWeight: FontWeight.bold,
           ),
         ),
@@ -122,7 +122,7 @@ class _LoginScreenState extends State<LoginScreen> {
       padding: EdgeInsets.symmetric(vertical: 30.0),
       width: double.infinity,
       child: RaisedButton(
-        elevation: 5.0,
+        elevation: 15.0,
         onPressed: () => print('Login Button Pressed'),
         padding: EdgeInsets.all(25.0),
         shape: RoundedRectangleBorder(
@@ -262,15 +262,11 @@ class _LoginScreenState extends State<LoginScreen> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      Text(
-                        'Kaset Chana',
-                        style: TextStyle(
-                          color: Colors.greenAccent,
-                          fontFamily: 'OpenSans',
-                          fontSize: 30.0,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
+                      Image(
+                          image: new AssetImage("assets/images/!LOGO.png"),
+                          fit: BoxFit.contain,
+                          height: 180,
+                          alignment: Alignment.topCenter),
                       SizedBox(height: 30.0),
                       _buildEmailTF(),
                       SizedBox(
