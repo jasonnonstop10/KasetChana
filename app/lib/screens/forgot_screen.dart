@@ -8,8 +8,6 @@ class ForgotScreen extends StatefulWidget {
 }
 
 class _ForgotScreenState extends State<ForgotScreen> {
-  bool _rememberMe = false;
-
   Widget _buildEmailTF() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,

@@ -8,7 +8,7 @@ class RegisterScreen extends StatefulWidget {
 }
 
 class _RegisterScreenState extends State<RegisterScreen> {
-  bool _rememberMe = false;
+  bool _agree = true;
 
   Widget _buildNameTF() {
     return Column(
@@ -192,12 +192,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
             data: ThemeData(unselectedWidgetColor: Colors.grey),
             child: Checkbox(
               shape: CircleBorder(),
-              value: _rememberMe,
+              value: _agree,
               checkColor: Colors.white,
               activeColor: Colors.greenAccent,
               onChanged: (value) {
                 setState(() {
-                  _rememberMe = value!;
+                  _agree = value!;
                 });
               },
             ),
