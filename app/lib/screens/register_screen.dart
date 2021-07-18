@@ -1,31 +1,13 @@
 import 'package:app/utilities/cons.dart';
-import 'package:app/screens/register_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-void main() => runApp(MyApp());
-
-class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
+class RegisterScreen extends StatefulWidget {
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Login UI',
-      debugShowCheckedModeBanner: false,
-      routes: <String, WidgetBuilder>{
-        '/register': (BuildContext context) => new RegisterScreen(),
-        //'/forgot': (BuildContext context) => new ForgotPage(),
-      },
-    );
-  }
+  _RegisterScreenState createState() => _RegisterScreenState();
 }
 
-class LoginScreen extends StatefulWidget {
-  @override
-  _LoginScreenState createState() => _LoginScreenState();
-}
-
-class _LoginScreenState extends State<LoginScreen> {
+class _RegisterScreenState extends State<RegisterScreen> {
   bool _rememberMe = false;
 
   Widget _buildEmailTF() {
@@ -94,7 +76,7 @@ class _LoginScreenState extends State<LoginScreen> {
     return Container(
       alignment: Alignment.center,
       child: FlatButton(
-        onPressed: () => {Navigator.pushNamed(context, "/register")},
+        onPressed: () => print('Forgot Password Button Pressed'),
         padding: EdgeInsets.only(top: 15.0),
         child: Text(
           'Forgot Password',
@@ -229,9 +211,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
   Widget _buildSignupBtn() {
     return GestureDetector(
-      onTap: () {
-        Navigator.pushNamed(context, "/register");
-      },
+      onTap: () => print('Sign Up Button Pressed'),
       child: RichText(
         text: TextSpan(
           children: [
@@ -282,6 +262,15 @@ class _LoginScreenState extends State<LoginScreen> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
+                      Text(
+                        'Register',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontFamily: 'OpenSans',
+                          fontSize: 30.0,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
                       Image(
                           image: new AssetImage("assets/images/!LOGO.png"),
                           fit: BoxFit.contain,
