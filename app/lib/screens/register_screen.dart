@@ -271,11 +271,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      Image(
-                          image: new AssetImage("assets/images/!LOGO.png"),
-                          fit: BoxFit.contain,
-                          height: 180,
-                          alignment: Alignment.topCenter),
                       SizedBox(height: 30.0),
                       _buildEmailTF(),
                       SizedBox(
