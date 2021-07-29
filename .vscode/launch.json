@@ -6,9 +6,14 @@
     "configurations": [
         {
             "name": "app",
-            "cwd": "app",
             "request": "launch",
             "type": "dart"
+        },
+        {
+            "name": "app (profile mode)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
         }
     ]
 }
