@@ -5,12 +5,12 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "app",
+            "name": "Kasetchana",
             "request": "launch",
             "type": "dart"
         },
         {
-            "name": "app (profile mode)",
+            "name": "Kasetchana",
             "request": "launch",
             "type": "dart",
             "flutterMode": "profile"
