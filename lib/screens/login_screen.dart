@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'register_screen.dart';
 
-void main() => runApp(MyApp());
+//void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -108,7 +108,7 @@ class _LoginScreenState extends State<LoginScreen> {
       width: double.infinity,
       child: RaisedButton(
         elevation: 20.0,
-        onPressed: () => {Navigator.pushNamed(context, "/port")},
+        onPressed: () => {Navigator.pushNamed(context, "/kasetplan")},
         padding: EdgeInsets.all(25.0),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(40.0),

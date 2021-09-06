@@ -15,12 +15,12 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class PortScreen extends StatefulWidget {
+class KasetplanScreen extends StatefulWidget {
   @override
-  _PortScreenState createState() => _PortScreenState();
+  _KasetplanScreenState createState() => _KasetplanScreenState();
 }
 
-class _PortScreenState extends State<PortScreen> {
+class _KasetplanScreenState extends State<KasetplanScreen> {
   get features => null;
 
   @override
@@ -35,28 +35,38 @@ class _PortScreenState extends State<PortScreen> {
               Container(
                 height: double.infinity,
                 width: double.infinity,
-                decoration: BoxDecoration(color: Colors.greenAccent),
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage("assets/images/Map.jpg"),
+                    fit: BoxFit.cover,
+                  ),
+                ),
               ),
               Container(
                 height: double.infinity,
                 child: SingleChildScrollView(
                   physics: AlwaysScrollableScrollPhysics(),
                   padding: EdgeInsets.symmetric(
-                    horizontal: 40.0,
-                    vertical: 120.0,
+                    horizontal: 10.0,
+                    vertical: 70.0,
                   ),
                   child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
-                      Text(
-                        'Portfolio',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontFamily: 'OpenSans',
-                          fontSize: 30.0,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
+                      Text('KASETPLAN',
+                          style: TextStyle(
+                              color: Colors.black54,
+                              fontFamily: 'OpenSans',
+                              fontSize: 18.0,
+                              fontWeight: FontWeight.normal),
+                          textAlign: TextAlign.left),
+                      Text('1,600 Sq.Meter',
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontFamily: 'OpenSans',
+                              fontSize: 30.0,
+                              fontWeight: FontWeight.bold),
+                          textAlign: TextAlign.left),
                     ],
                   ),
                 ),
