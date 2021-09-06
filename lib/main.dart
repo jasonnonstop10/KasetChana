@@ -3,6 +3,7 @@ import 'package:app/screens/home_screen.dart';
 import 'package:app/screens/register_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:app/screens/login_screen.dart';
+import 'package:app/screens/portfolio_main.dart';
 
 void main() => runApp(MyApp());
 
@@ -17,6 +18,7 @@ class MyApp extends StatelessWidget {
         '/register': (BuildContext context) => new RegisterScreen(),
         '/forgot': (BuildContext context) => new ForgotScreen(),
         '/home': (BuildContext context) => new HomeScreen(),
+        '/port': (BuildContext context) => new PortScreen(),
       },
       home: LoginScreen(),
     );

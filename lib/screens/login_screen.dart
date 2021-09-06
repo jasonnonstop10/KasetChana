@@ -108,7 +108,7 @@ class _LoginScreenState extends State<LoginScreen> {
       width: double.infinity,
       child: RaisedButton(
         elevation: 20.0,
-        onPressed: () => {Navigator.pushNamed(context, "/home")},
+        onPressed: () => {Navigator.pushNamed(context, "/port")},
         padding: EdgeInsets.all(25.0),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(40.0),
