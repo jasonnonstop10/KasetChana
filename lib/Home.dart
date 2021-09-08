@@ -8,6 +8,7 @@ import 'package:untitled/Login.dart';
 import 'package:untitled/PortMain.dart';
 import 'package:untitled/Profile.dart';
 import 'package:untitled/Register.dart';
+import 'package:untitled/Watchlist.dart';
 
 class Home extends StatelessWidget {
   Home({Key? key}) : super(key: key);
@@ -848,7 +849,7 @@ class Home extends StatelessWidget {
                   child: GestureDetector(
                     onTap: () {
                       Route route =
-                          MaterialPageRoute(builder: (context) => Login());
+                          MaterialPageRoute(builder: (context) => Watchlist());
                       Navigator.push(context, route);
                     }, //Heart icon
                     child:
