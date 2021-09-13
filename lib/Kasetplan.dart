@@ -269,12 +269,19 @@ class Kasetplan extends StatelessWidget {
                 Pinned.fromPins(
                   Pin(size: 16.0, start: 24.0),
                   Pin(size: 16.0, start: 48.0),
-                  child:
-                      // Adobe XD layer: 'ic_arrow_back_24px' (shape)
-                      SvgPicture.string(
-                    _svg_88d5p9,
-                    allowDrawingOutsideViewBox: true,
-                    fit: BoxFit.fill,
+                  child: GestureDetector(
+                    onTap: () {
+                      Route route =
+                          MaterialPageRoute(builder: (context) => Home());
+                      Navigator.push(context, route);
+                    },
+                    child:
+                        // Adobe XD layer: 'ic_arrow_back_24px' (shape)
+                        SvgPicture.string(
+                      _svg_88d5p9,
+                      allowDrawingOutsideViewBox: true,
+                      fit: BoxFit.fill,
+                    ),
                   ),
                 ),
                 Pinned.fromPins(
