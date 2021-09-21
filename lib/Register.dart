@@ -1,11 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:adobe_xd/pinned.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:http/http.dart';
 import 'package:untitled/Login.dart';
 
 import 'Home.dart';
 
 class Register extends StatelessWidget {
+  final url = "https://kasetchana.herokuapp.com";
+  void postData() async {
+    try {
+      final response = await post(Uri.parse(url),
+          body: {"title": "KasetChana", "body": "Test", "userId": "1"});
+    } catch (er) {}
+  }
+
   Register({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {

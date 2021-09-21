@@ -1,10 +1,26 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:adobe_xd/pinned.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:http/http.dart';
 import 'package:untitled/Home.dart';
 import 'package:untitled/WatchlistEdit.dart';
 
 class Watchlist extends StatelessWidget {
+  final url = "https://kasetchana.herokuapp.com";
+  var _postsJson = [];
+  void fetchPosts() async {
+    try {
+      final response = await get(Uri.parse(url));
+      final jsonData = jsonDecode(response.body) as List;
+
+      setState(() {
+        _postsJson = jsonData;
+      });
+    } catch (err) {}
+  }
+
   Watchlist({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
@@ -491,6 +507,8 @@ class Watchlist extends StatelessWidget {
       ),
     );
   }
+
+  void setState(Null Function() param0) {}
 }
 
 const String _svg_9ik4yn =

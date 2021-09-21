@@ -74,6 +74,13 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  void postData() async {
+    try {
+      final response = await post(Uri.parse(url),
+          body: {"title": "KasetChana", "body": "Test", "userId": "1"});
+    } catch (er) {}
+  }
+
   @override
   void initState() {
     super.initState();
