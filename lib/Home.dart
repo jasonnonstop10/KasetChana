@@ -14,11 +14,12 @@ import 'package:untitled/Register.dart';
 import 'package:untitled/Watchlist.dart';
 
 class Home extends StatelessWidget {
-  final url = "https://kasetchana.herokuapp.com";
+  final urlWeather =
+      "http://api.openweathermap.org/data/2.5/weather?q=Nonthaburi%2CTH&appid=f6e0fd6155de2dd25d21739c7f998724&fbclid=IwAR0QYOPw9ivSeL0zFiZMU2aiQFjJNFTdeF2HkHh-tAEnRDXb_zdlQ_5QUdQ";
   var _postsJson = [];
   void fetchPosts() async {
     try {
-      final response = await get(Uri.parse(url));
+      final response = await get(Uri.parse(urlWeather));
       final jsonData = jsonDecode(response.body) as List;
 
       setState(() {
