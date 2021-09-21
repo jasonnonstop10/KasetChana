@@ -1,6 +1,9 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:adobe_xd/pinned.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:http/http.dart';
 import 'package:untitled/KasetPrice.dart';
 import 'package:untitled/Kasetplan.dart';
 import 'package:untitled/KasetplanUpdate.dart';
@@ -11,6 +14,19 @@ import 'package:untitled/Register.dart';
 import 'package:untitled/Watchlist.dart';
 
 class Home extends StatelessWidget {
+  final url = "https://kasetchana.herokuapp.com";
+  var _postsJson = [];
+  void fetchPosts() async {
+    try {
+      final response = await get(Uri.parse(url));
+      final jsonData = jsonDecode(response.body) as List;
+
+      setState(() {
+        _postsJson = jsonData;
+      });
+    } catch (err) {}
+  }
+
   Home({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
@@ -900,6 +916,8 @@ class Home extends StatelessWidget {
       ),
     );
   }
+
+  void setState(Null Function() param0) {}
 }
 
 const String _svg_gdf64s =
