@@ -1,23 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:adobe_xd/pinned.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:http/http.dart';
 import 'package:untitled/Forgot.dart';
 import 'package:untitled/Home.dart';
 import 'package:untitled/Register.dart';
+import 'package:http/http.dart' as http;
+
+void postLogin() async {
+  final urlLogin = Uri.parse("https://kasetchana.azurewebsites.netlogin");
+  http.Response response = await http.post(urlLogin);
+  print(response.body);
+  print(response.statusCode);
+}
 
 class Login extends StatelessWidget {
-  final url = "https://kasetchana.herokuapp.com";
-  void postData() async {
-    try {
-      final response = await post(Uri.parse(url),
-          body: {"title": "KasetChana", "body": "Test", "userId": "1"});
-    } catch (er) {}
-  }
-
   Login({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    //postLogin();
     return Scaffold(
       backgroundColor: const Color(0xffffffff),
       body: Stack(
@@ -183,12 +183,18 @@ class Login extends StatelessWidget {
                 Pinned.fromPins(
                   Pin(size: 228.0, start: 18.0),
                   Pin(size: 24.0, middle: 0.5),
-                  child: Text(
-                    'Enter your email address',
+                  child: TextFormField(
+                    decoration: new InputDecoration(
+                        border: InputBorder.none,
+                        focusedBorder: InputBorder.none,
+                        enabledBorder: InputBorder.none,
+                        errorBorder: InputBorder.none,
+                        disabledBorder: InputBorder.none,
+                        hintText: "Enter you email address"),
                     style: TextStyle(
                       fontFamily: 'Uber Move Text',
                       fontSize: 20,
-                      color: const Color(0x66676767),
+                      color: const Color(0x797c82),
                     ),
                     textAlign: TextAlign.left,
                   ),
@@ -243,8 +249,14 @@ class Login extends StatelessWidget {
                 Pinned.fromPins(
                   Pin(size: 188.0, start: 21.0),
                   Pin(size: 24.0, middle: 0.6444),
-                  child: Text(
-                    'Enter your password',
+                  child: TextFormField(
+                    decoration: new InputDecoration(
+                        border: InputBorder.none,
+                        focusedBorder: InputBorder.none,
+                        enabledBorder: InputBorder.none,
+                        errorBorder: InputBorder.none,
+                        disabledBorder: InputBorder.none,
+                        hintText: "Enter you password"),
                     style: TextStyle(
                       fontFamily: 'Uber Move Text',
                       fontSize: 20,

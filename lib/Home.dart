@@ -19,7 +19,7 @@ void GetWeather() async {
       "http://api.openweathermap.org/data/2.5/weather?q=Nonthaburi%2CTH&appid=f6e0fd6155de2dd25d21739c7f998724&fbclid=IwAR0QYOPw9ivSeL0zFiZMU2aiQFjJNFTdeF2HkHh-tAEnRDXb_zdlQ_5QUdQ");
   http.Response response = await http.get(urlWeather);
   print(response.body);
-  Text(response.body);
+  print(response.statusCode);
 }
 
 class Home extends StatelessWidget {
