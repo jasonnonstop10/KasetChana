@@ -12,25 +12,21 @@ import 'package:untitled/PortMain.dart';
 import 'package:untitled/Profile.dart';
 import 'package:untitled/Register.dart';
 import 'package:untitled/Watchlist.dart';
+import 'package:http/http.dart' as http;
+
+void GetWeather() async {
+  final urlWeather = Uri.parse(
+      "http://api.openweathermap.org/data/2.5/weather?q=Nonthaburi%2CTH&appid=f6e0fd6155de2dd25d21739c7f998724&fbclid=IwAR0QYOPw9ivSeL0zFiZMU2aiQFjJNFTdeF2HkHh-tAEnRDXb_zdlQ_5QUdQ");
+  http.Response response = await http.get(urlWeather);
+  print(response.body);
+  Text(response.body);
+}
 
 class Home extends StatelessWidget {
-  final urlWeather =
-      "http://api.openweathermap.org/data/2.5/weather?q=Nonthaburi%2CTH&appid=f6e0fd6155de2dd25d21739c7f998724&fbclid=IwAR0QYOPw9ivSeL0zFiZMU2aiQFjJNFTdeF2HkHh-tAEnRDXb_zdlQ_5QUdQ";
-  var _postsJson = [];
-  void fetchPosts() async {
-    try {
-      final response = await get(Uri.parse(urlWeather));
-      final jsonData = jsonDecode(response.body) as List;
-
-      setState(() {
-        _postsJson = jsonData;
-      });
-    } catch (err) {}
-  }
-
   Home({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    GetWeather();
     return Scaffold(
       backgroundColor: const Color(0xffffffff),
       body: Stack(

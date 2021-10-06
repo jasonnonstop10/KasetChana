@@ -7,24 +7,20 @@ import 'package:http/http.dart';
 import 'package:untitled/Home.dart';
 import 'package:untitled/Login.dart';
 import 'package:untitled/SearchPage.dart';
+import 'package:http/http.dart' as http;
+
+void getPrice() async {
+  final urlPrice = Uri.parse("https://kasetchana.azurewebsites.net/kasetprice");
+  http.Response response = await http.get(urlPrice);
+  print(response.statusCode);
+  print(response.body);
+}
 
 class KasetPrice extends StatelessWidget {
-  final url = "https://kasetchana.herokuapp.com";
-  var _postsJson = [];
-  void fetchPosts() async {
-    try {
-      final response = await get(Uri.parse(url));
-      final jsonData = jsonDecode(response.body) as List;
-
-      setState(() {
-        _postsJson = jsonData;
-      });
-    } catch (err) {}
-  }
-
   KasetPrice({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    getPrice();
     return Scaffold(
       backgroundColor: const Color(0xffffffff),
       body: Stack(

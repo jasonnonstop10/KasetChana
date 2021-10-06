@@ -10,6 +10,8 @@ import 'package:untitled/Login.dart';
 import 'package:untitled/PortMain.dart';
 import 'package:untitled/Register.dart';
 
+import 'KasetplanUpdate.dart';
+
 void main() {
   runApp(MyApp());
 }
@@ -23,7 +25,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Home(
+      home: KasetPrice(
         key: null,
       ),
     );

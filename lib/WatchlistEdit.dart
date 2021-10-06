@@ -4,11 +4,20 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:untitled/Home.dart';
 import 'package:untitled/SearchPage.dart';
 import 'package:untitled/Watchlist.dart';
+import 'package:http/http.dart' as http;
+
+void updateWatch() async {
+  final urlWatch = Uri.parse("https://kasetchana.azurewebsites.net/watchlist");
+  http.Response response = await http.post(urlWatch);
+  print(response.statusCode);
+  print(response.body);
+}
 
 class WatchlistEdit extends StatelessWidget {
   WatchlistEdit({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    updateWatch();
     return Scaffold(
       backgroundColor: const Color(0xffffffff),
       body: Stack(

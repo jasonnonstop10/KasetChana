@@ -4,11 +4,23 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:untitled/Home.dart';
 import 'package:untitled/Kasetplan.dart';
 import 'package:untitled/MeasurementLand.dart';
+import 'package:http/http.dart' as http;
+
+void updatePlan() async {
+  final urlPlan = Uri.parse("https://kasetchana.azurewebsites.net/kasetplan");
+  http.Response response = await http.post(urlPlan);
+  http.Response update = await http.put(urlPlan);
+  print(response.statusCode);
+  print(response.body);
+  print(update.statusCode);
+  print(update.body);
+}
 
 class KasetplanUpdate extends StatelessWidget {
   KasetplanUpdate({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    updatePlan();
     return Scaffold(
       backgroundColor: const Color(0xffffffff),
       body: Stack(

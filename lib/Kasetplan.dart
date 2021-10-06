@@ -3,11 +3,20 @@ import 'package:adobe_xd/pinned.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:untitled/Home.dart';
 import 'package:untitled/KasetplanUpdate.dart';
+import 'package:http/http.dart' as http;
+
+void GetPlan() async {
+  final urlPlan = Uri.parse("https://kasetchana.azurewebsites.net/kasetplan");
+  http.Response response = await http.get(urlPlan);
+  print(response.statusCode);
+  print(response.body);
+}
 
 class Kasetplan extends StatelessWidget {
   Kasetplan({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    GetPlan();
     return Scaffold(
       backgroundColor: const Color(0xffffffff),
       body: Stack(
