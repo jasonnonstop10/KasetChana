@@ -3,16 +3,36 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:adobe_xd/pinned.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:http/http.dart';
+// import 'package:http/http.dart';
 import 'package:untitled/Home.dart';
 import 'package:untitled/WatchlistEdit.dart';
-import 'package:http/http.dart' as http;
+// import 'package:http/http.dart' as http;
 
 void getWatch() async {
-  final urlWatch = Uri.parse("https://kasetchana.azurewebsites.net/watchlist");
-  http.Response response = await http.get(urlWatch);
-  print(response.statusCode);
-  print(response.body);
+  // var request = http.Request(
+  //     'GET', Uri.parse('https://kasetchana.azurewebsites.net/watchlist'));
+
+  // http.StreamedResponse response = await request.send();
+
+  // if (response.statusCode == 200) {
+  //   print(await response.stream.bytesToString());
+  // } else {
+  //   print(response.reasonPhrase);
+  // }
+}
+
+void postWatch() async {
+  // var request =
+  //     http.Request('POST', Uri.parse('http://localhost:3000/watchlist'));
+  // request.body = '''{"no":1,"watchlist_no":["P2202","P1201"]}''';
+
+  // http.StreamedResponse response = await request.send();
+
+  // if (response.statusCode == 200) {
+  //   print(await response.stream.bytesToString());
+  // } else {
+  //   print(response.reasonPhrase);
+  // }
 }
 
 class Watchlist extends StatelessWidget {
@@ -20,6 +40,7 @@ class Watchlist extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     getWatch();
+    postWatch();
     return Scaffold(
       backgroundColor: const Color(0xffffffff),
       body: Stack(

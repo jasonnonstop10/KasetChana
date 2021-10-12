@@ -1,23 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:adobe_xd/pinned.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:http/http.dart';
 import 'package:untitled/Login.dart';
-
+// import 'package:http/http.dart' as http;
+import 'package:dio/dio.dart';
+import 'package:untitled/model/auth.dart';
+import 'package:untitled/service/auth_service.dart';
 import 'Home.dart';
 
 class Register extends StatelessWidget {
-  final url = "https://kasetchana.herokuapp.com";
-  void postData() async {
-    try {
-      final response = await post(Uri.parse(url),
-          body: {"title": "KasetChana", "body": "Test", "userId": "1"});
-    } catch (er) {}
+  void postReg() async {
+    // final urlReg = Uri.parse("https://kasetchana.azurewebsites.net/signup");
+    // http.Response response = await http.post(urlReg);
+    // print(response.body);
+    // print(response.statusCode);
   }
 
   Register({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    String name;
+    String email;
+    String password;
+    String pictureurl;
+    String region;
     return Scaffold(
       backgroundColor: const Color(0xffffffff),
       body: Stack(
@@ -85,27 +91,14 @@ class Register extends StatelessWidget {
             child: Stack(
               children: <Widget>[
                 Pinned.fromPins(
-                  Pin(start: 0.0, end: 0.0),
-                  Pin(size: 0.0, end: 9.0),
-                  child: Stack(
-                    children: <Widget>[
-                      Pinned.fromPins(
-                        Pin(start: 0.0, end: 0.0),
-                        Pin(start: 0.0, end: -1.0),
-                        child: SvgPicture.string(
-                          _svg_u1hkq4,
-                          allowDrawingOutsideViewBox: true,
-                          fit: BoxFit.fill,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Pinned.fromPins(
                   Pin(size: 153.0, start: 10.5),
                   Pin(start: 0.0, end: 0.0),
-                  child: Text(
-                    'Enter your name\n',
+                  child: TextFormField(
+                    onChanged: (value) {
+                      name = value;
+                    },
+                    decoration:
+                        new InputDecoration(hintText: "Enter your name"),
                     style: TextStyle(
                       fontFamily: 'Uber Move Text',
                       fontSize: 20,
@@ -118,27 +111,13 @@ class Register extends StatelessWidget {
             ),
           ),
           Pinned.fromPins(
-            Pin(start: 29.5, end: 29.5),
-            Pin(size: 0.0, middle: 0.5212),
-            child: Stack(
-              children: <Widget>[
-                Pinned.fromPins(
-                  Pin(start: 0.0, end: 0.0),
-                  Pin(start: 0.0, end: -1.0),
-                  child: SvgPicture.string(
-                    _svg_u1hkq4,
-                    allowDrawingOutsideViewBox: true,
-                    fit: BoxFit.fill,
-                  ),
-                ),
-              ],
-            ),
-          ),
-          Pinned.fromPins(
             Pin(size: 151.0, start: 40.0),
             Pin(size: 48.0, middle: 0.5035),
-            child: Text(
-              'Enter your email\n',
+            child: TextFormField(
+              onChanged: (value) {
+                email = value;
+              },
+              decoration: new InputDecoration(hintText: "Enter your email"),
               style: TextStyle(
                 fontFamily: 'Uber Move Text',
                 fontSize: 20,
@@ -150,54 +129,74 @@ class Register extends StatelessWidget {
           Pinned.fromPins(
             Pin(size: 188.0, start: 40.0),
             Pin(size: 24.0, middle: 0.5757),
-            child: Text(
-              'Enter your password',
+            child: TextFormField(
+              onChanged: (value) {
+                password = value;
+              },
+              decoration: new InputDecoration(hintText: "Enter your password"),
               style: TextStyle(
                 fontFamily: 'Uber Move Text',
                 fontSize: 20,
                 color: const Color(0x66676767),
               ),
               textAlign: TextAlign.left,
-            ),
-          ),
-          Pinned.fromPins(
-            Pin(start: 29.5, end: 29.5),
-            Pin(size: 1.0, middle: 0.6056),
-            child: SvgPicture.string(
-              _svg_mq2fcc,
-              allowDrawingOutsideViewBox: true,
-              fit: BoxFit.fill,
             ),
           ),
           Pinned.fromPins(
             Pin(size: 214.0, start: 40.0),
             Pin(size: 24.0, middle: 0.6617),
-            child: Text(
-              'Confirm your password',
+            child: TextFormField(
+              onChanged: (value) {
+                password = value;
+              },
+              decoration:
+                  new InputDecoration(hintText: "Confirm your password"),
               style: TextStyle(
                 fontFamily: 'Uber Move Text',
                 fontSize: 20,
                 color: const Color(0x66676767),
               ),
               textAlign: TextAlign.left,
-            ),
-          ),
-          Pinned.fromPins(
-            Pin(start: 29.5, end: 29.5),
-            Pin(size: 1.0, middle: 0.6894),
-            child: SvgPicture.string(
-              _svg_6scz6c,
-              allowDrawingOutsideViewBox: true,
-              fit: BoxFit.fill,
             ),
           ),
           Pinned.fromPins(
             Pin(size: 76.0, middle: 0.5),
             Pin(size: 24.0, end: 92.0),
             child: GestureDetector(
-              onTap: () {
-                Route route = MaterialPageRoute(builder: (context) => Home());
-                Navigator.push(context, route);
+              onTap: () async {
+                final User? _user = await Auth.register(
+                  email: 'hi10gmail.com',
+                  password: '123123',
+                  name: 'test',
+                  region: 'asia',
+                  pictureUrl: 'hello',
+                );
+                if (_user != null) {
+                  print("[Register Success]: ${_user.toString()}");
+                } else {
+                  print("[Register Failed]: Already exist");
+                }
+                // final http.Response result = await
+
+                // print("[api] ${result.statusCode}");
+                // var request = http.Request('POST',
+                //     Uri.parse('https://kasetchana.azurewebsites.net/signup'));
+                // request.body =
+                //     '''{\r\n"email":"ger@gmail.com",\r\n"password":"123456",\r\n"name":"jason todd",\r\n"region":"bangkok",\r\n"pictureurl":"https://kasetchana.s3.us-west-1.amazonaws.com/userResult/61475d58a994ea86a29ca9de/f88a614853a17f8e4a1bd3885051c162.jpeg"}''';
+
+                // http.StreamedResponse response = await request.send();
+
+                // if (response.statusCode == 200) {
+                //   print(await response.stream.bytesToString());
+                //   Route route =
+                //       MaterialPageRoute(builder: (context) => Home());
+                //   Navigator.push(context, route);
+                // } else {
+                //   print(response.reasonPhrase);
+                // }
+
+                /*Route route = MaterialPageRoute(builder: (context) => Home());
+                Navigator.push(context, route);*/
               },
               child: Text(
                 'Register',
@@ -310,15 +309,37 @@ class Register extends StatelessWidget {
           Pinned.fromPins(
             Pin(size: 99.0, middle: 0.5016),
             Pin(size: 16.0, middle: 0.3057),
-            child: Text(
-              'Upload Picture',
-              style: TextStyle(
-                fontFamily: 'Uber Move Text',
-                fontSize: 14,
-                color: const Color(0xff000000),
-                fontWeight: FontWeight.w700,
+            child: GestureDetector(
+              onTap: () async {
+                try {
+                  // var request = http.MultipartRequest('POST',
+                  //     Uri.parse('https://kasetchana.azurewebsites.net/images'));
+                  // request.files.add(await http.MultipartFile.fromPath(
+                  //     'photo', '/C:/Users/Lenovo/Desktop/jarjarbilng.jpg'));
+
+                  // http.StreamedResponse response = await request.send();
+
+                  // if (response.statusCode == 200) {
+                  //   print(await response.stream.bytesToString());
+                  // } else {
+                  //   print(response.reasonPhrase);
+                  // }
+                } catch (e) {
+                  print(e);
+                }
+                /*Route route = MaterialPageRoute(builder: (context) => Home());
+                Navigator.push(context, route);*/
+              },
+              child: Text(
+                'Upload Picture',
+                style: TextStyle(
+                  fontFamily: 'Uber Move Text',
+                  fontSize: 14,
+                  color: const Color(0xff000000),
+                  fontWeight: FontWeight.w700,
+                ),
+                textAlign: TextAlign.left,
               ),
-              textAlign: TextAlign.left,
             ),
           ),
         ],

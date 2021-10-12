@@ -4,20 +4,33 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:untitled/Forgot.dart';
 import 'package:untitled/Home.dart';
 import 'package:untitled/Register.dart';
-import 'package:http/http.dart' as http;
+import 'package:untitled/model/auth.dart';
+
+import 'service/auth_service.dart';
+// import 'package:http/http.dart' as http;
 
 void postLogin() async {
-  final urlLogin = Uri.parse("https://kasetchana.azurewebsites.netlogin");
-  http.Response response = await http.post(urlLogin);
-  print(response.body);
-  print(response.statusCode);
+  // final urlLogin = Uri.parse("https://kasetchana.azurewebsites.net/login");
+  // http.Response response = await http.post(urlLogin);
+  // print(response.body);
+  // print(response.statusCode);
 }
 
-class Login extends StatelessWidget {
+class Login extends StatefulWidget {
   Login({Key? key}) : super(key: key);
+
+  @override
+  State<Login> createState() => _LoginState();
+}
+
+class _LoginState extends State<Login> {
+  String email = '';
+  String password = '';
   @override
   Widget build(BuildContext context) {
-    //postLogin();
+    TextEditingController emailController = new TextEditingController();
+    TextEditingController passwordController = new TextEditingController();
+    // postLogin();
     return Scaffold(
       backgroundColor: const Color(0xffffffff),
       body: Stack(
@@ -183,7 +196,8 @@ class Login extends StatelessWidget {
                 Pinned.fromPins(
                   Pin(size: 228.0, start: 18.0),
                   Pin(size: 24.0, middle: 0.5),
-                  child: TextFormField(
+                  child: TextField(
+                    controller: emailController,
                     decoration: new InputDecoration(
                         border: InputBorder.none,
                         focusedBorder: InputBorder.none,
@@ -194,7 +208,7 @@ class Login extends StatelessWidget {
                     style: TextStyle(
                       fontFamily: 'Uber Move Text',
                       fontSize: 20,
-                      color: const Color(0x797c82),
+                      color: const Color(0xFF000000),
                     ),
                     textAlign: TextAlign.left,
                   ),
@@ -249,7 +263,9 @@ class Login extends StatelessWidget {
                 Pinned.fromPins(
                   Pin(size: 188.0, start: 21.0),
                   Pin(size: 24.0, middle: 0.6444),
-                  child: TextFormField(
+                  child: TextField(
+                    controller: passwordController,
+                    obscureText: true,
                     decoration: new InputDecoration(
                         border: InputBorder.none,
                         focusedBorder: InputBorder.none,
@@ -260,7 +276,7 @@ class Login extends StatelessWidget {
                     style: TextStyle(
                       fontFamily: 'Uber Move Text',
                       fontSize: 20,
-                      color: const Color(0x6b676767),
+                      color: const Color(0xFF000000),
                     ),
                     textAlign: TextAlign.left,
                   ),
@@ -309,9 +325,23 @@ class Login extends StatelessWidget {
             Pin(size: 52.0, middle: 0.5),
             Pin(size: 24.0, middle: 0.6778),
             child: GestureDetector(
-              onTap: () {
-                Route route = MaterialPageRoute(builder: (context) => Home());
-                Navigator.push(context, route);
+              onTap: () async {
+                final User? _user = await Auth.login(
+                  email: emailController.text,
+                  password: passwordController.text,
+                );
+                if (_user != null) {
+                  Route route = MaterialPageRoute(builder: (context) => Home());
+                  Navigator.push(context, route);
+                  print(
+                    "[Login Success]: ${_user.toString()}",
+                  );
+                } else {
+                  print("[Login Failed]: wrong cerdential");
+                }
+
+                /*Route route = MaterialPageRoute(builder: (context) => Home());
+                Navigator.push(context, route);*/
               },
               child: Text(
                 'Login',

@@ -4,13 +4,35 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:untitled/Home.dart';
 import 'package:untitled/SearchPage.dart';
 import 'package:untitled/Watchlist.dart';
-import 'package:http/http.dart' as http;
+// import 'package:http/http.dart' as http;
 
 void updateWatch() async {
-  final urlWatch = Uri.parse("https://kasetchana.azurewebsites.net/watchlist");
-  http.Response response = await http.post(urlWatch);
-  print(response.statusCode);
-  print(response.body);
+  // var request =
+  //     http.Request('PUT', Uri.parse('http://localhost:3000/watchlist'));
+  // request.body =
+  //     '''{\r\n "no":"1",\r\n "watchlist_no":["P1120,W2301"]   \r\n}''';
+
+  // http.StreamedResponse response = await request.send();
+
+  // if (response.statusCode == 200) {
+  //   print(await response.stream.bytesToString());
+  // } else {
+  //   print(response.reasonPhrase);
+  // }
+}
+
+void deleteWatch() async {
+  // var request =
+  //     http.Request('DELETE', Uri.parse('http://localhost:3000/watchlist'));
+  // request.body = '''{\r\n "no":"1"\r\n}''';
+
+  // http.StreamedResponse response = await request.send();
+
+  // if (response.statusCode == 200) {
+  //   print(await response.stream.bytesToString());
+  // } else {
+  //   print(response.reasonPhrase);
+  // }
 }
 
 class WatchlistEdit extends StatelessWidget {

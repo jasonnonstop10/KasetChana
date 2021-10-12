@@ -3,13 +3,20 @@ import 'package:adobe_xd/pinned.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:untitled/Home.dart';
 import 'package:untitled/KasetplanUpdate.dart';
-import 'package:http/http.dart' as http;
+// import 'package:http/http.dart' as http;
 
 void GetPlan() async {
-  final urlPlan = Uri.parse("https://kasetchana.azurewebsites.net/kasetplan");
-  http.Response response = await http.get(urlPlan);
-  print(response.statusCode);
-  print(response.body);
+  // var request =
+  //     http.Request('GET', Uri.parse('http://localhost:3000/kasetprice'));
+  // request.body = '''{"product_id":"P11001"}''';
+
+  // http.StreamedResponse response = await request.send();
+
+  // if (response.statusCode == 200) {
+  //   print(await response.stream.bytesToString());
+  // } else {
+  //   print(response.reasonPhrase);
+  // }
 }
 
 class Kasetplan extends StatelessWidget {

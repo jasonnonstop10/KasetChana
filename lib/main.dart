@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:http/http.dart';
+// import 'package:http/http.dart';
 import 'package:untitled/Forgot.dart';
 import 'package:untitled/Home.dart';
 import 'package:untitled/KasetPrice.dart';
@@ -56,12 +56,12 @@ class _MyHomePageState extends State<MyHomePage> {
   var _postsJson = [];
   void fetchPosts() async {
     try {
-      final response = await get(Uri.parse(url));
-      final jsonData = jsonDecode(response.body) as List;
+      // final response = await get(Uri.parse(url));
+      // final jsonData = jsonDecode(response.body) as List;
 
-      setState(() {
-        _postsJson = jsonData;
-      });
+      // setState(() {
+      //   _postsJson = jsonData;
+      // });
     } catch (err) {}
   }
 
@@ -78,8 +78,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void postData() async {
     try {
-      final response = await post(Uri.parse(url),
-          body: {"title": "KasetChana", "body": "Test", "userId": "1"});
+      // final response = await post(Uri.parse(url),
+      //     body: {"title": "KasetChana", "body": "Test", "userId": "1"});
     } catch (er) {}
   }
 

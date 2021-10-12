@@ -3,17 +3,25 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:adobe_xd/pinned.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:http/http.dart';
+// import 'package:http/http.dart';
 import 'package:untitled/Home.dart';
 import 'package:untitled/Login.dart';
 import 'package:untitled/SearchPage.dart';
-import 'package:http/http.dart' as http;
+// import 'package:http/http.dart' as http;
 
 void getPrice() async {
-  final urlPrice = Uri.parse("https://kasetchana.azurewebsites.net/kasetprice");
-  http.Response response = await http.get(urlPrice);
-  print(response.statusCode);
-  print(response.body);
+  // var request = http.Request(
+  //     'GET',
+  //     Uri.parse(
+  //         'https://dataapi.moc.go.th/gis-product-prices?product_id=P11001&from_date=2018-01-01&to_date=2018-02-28'));
+
+  // http.StreamedResponse response = await request.send();
+
+  // if (response.statusCode == 200) {
+  //   print(await response.stream.bytesToString());
+  // } else {
+  //   print(response.reasonPhrase);
+  // }
 }
 
 class KasetPrice extends StatelessWidget {

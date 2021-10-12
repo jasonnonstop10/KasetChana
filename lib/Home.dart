@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:adobe_xd/pinned.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:http/http.dart';
+// import 'package:http/http.dart';
 import 'package:untitled/KasetPrice.dart';
 import 'package:untitled/Kasetplan.dart';
 import 'package:untitled/KasetplanUpdate.dart';
@@ -12,14 +12,19 @@ import 'package:untitled/PortMain.dart';
 import 'package:untitled/Profile.dart';
 import 'package:untitled/Register.dart';
 import 'package:untitled/Watchlist.dart';
-import 'package:http/http.dart' as http;
+// import 'package:http/http.dart' as http;
 
 void GetWeather() async {
-  final urlWeather = Uri.parse(
-      "http://api.openweathermap.org/data/2.5/weather?q=Nonthaburi%2CTH&appid=f6e0fd6155de2dd25d21739c7f998724&fbclid=IwAR0QYOPw9ivSeL0zFiZMU2aiQFjJNFTdeF2HkHh-tAEnRDXb_zdlQ_5QUdQ");
-  http.Response response = await http.get(urlWeather);
-  print(response.body);
-  print(response.statusCode);
+  // var request = http.Request(
+  //     'GET', Uri.parse('https://kasetchana.azurewebsites.net/weather'));
+
+  // http.StreamedResponse response = await request.send();
+
+  // if (response.statusCode == 200) {
+  //   print(await response.stream.bytesToString());
+  // } else {
+  //   print(response.reasonPhrase);
+  // }
 }
 
 class Home extends StatelessWidget {

@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:adobe_xd/pinned.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:http/http.dart';
+// import 'package:http/http.dart';
 import 'package:untitled/Login.dart';
 
 class Forgot extends StatelessWidget {
   final url = "https://kasetchana.herokuapp.com";
   void postData() async {
     try {
-      final response = await post(Uri.parse(url),
-          body: {"title": "KasetChana", "body": "Test", "userId": "1"});
+      // final response = await post(Uri.parse(url),
+      //     body: {"title": "KasetChana", "body": "Test", "userId": "1"});
     } catch (er) {}
   }
 

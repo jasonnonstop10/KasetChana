@@ -4,16 +4,36 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:untitled/Home.dart';
 import 'package:untitled/Kasetplan.dart';
 import 'package:untitled/MeasurementLand.dart';
-import 'package:http/http.dart' as http;
+// import 'package:http/http.dart' as http;
 
 void updatePlan() async {
-  final urlPlan = Uri.parse("https://kasetchana.azurewebsites.net/kasetplan");
-  http.Response response = await http.post(urlPlan);
-  http.Response update = await http.put(urlPlan);
-  print(response.statusCode);
-  print(response.body);
-  print(update.statusCode);
-  print(update.body);
+  // var request = http.Request(
+  //     'PUT', Uri.parse('https://kasetchana.azurewebsites.net/kasetplan'));
+  // request.body =
+  //     '''{\r\n "no":"1",\r\n "name": "papaya",\r\n "price": "500000",\r\n "latitude": "52.0",\r\n "longitude": "425.0"   \r\n}''';
+
+  // http.StreamedResponse response = await request.send();
+
+  // if (response.statusCode == 200) {
+  //   print(await response.stream.bytesToString());
+  // } else {
+  //   print(response.reasonPhrase);
+  // }
+}
+
+void createPlan() async {
+  // var request = http.Request(
+  //     'POST', Uri.parse('https://kasetchana.azurewebsites.net/kasetplan'));
+  // request.body =
+  //     '''{\r\n "no":"1",\r\n "name": "tometo",\r\n "price": "500000",\r\n "latitude": "52.0",\r\n "longitude": "425.0"   \r\n}''';
+
+  // http.StreamedResponse response = await request.send();
+
+  // if (response.statusCode == 200) {
+  //   print(await response.stream.bytesToString());
+  // } else {
+  //   print(response.reasonPhrase);
+  // }
 }
 
 class KasetplanUpdate extends StatelessWidget {
