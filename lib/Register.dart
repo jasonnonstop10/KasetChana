@@ -2,19 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:adobe_xd/pinned.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:untitled/Login.dart';
-// import 'package:http/http.dart' as http;
-import 'package:dio/dio.dart';
+
 import 'package:untitled/model/auth.dart';
 import 'package:untitled/service/auth_service.dart';
 import 'Home.dart';
 
 class Register extends StatelessWidget {
-  void postReg() async {
-    // final urlReg = Uri.parse("https://kasetchana.azurewebsites.net/signup");
-    // http.Response response = await http.post(urlReg);
-    // print(response.body);
-    // print(response.statusCode);
-  }
+  void postReg() async {}
 
   Register({Key? key}) : super(key: key);
   @override
@@ -174,27 +168,6 @@ class Register extends StatelessWidget {
                 } else {
                   print("[Register Failed]: Already exist");
                 }
-                // final http.Response result = await
-
-                // print("[api] ${result.statusCode}");
-                // var request = http.Request('POST',
-                //     Uri.parse('https://kasetchana.azurewebsites.net/signup'));
-                // request.body =
-                //     '''{\r\n"email":"ger@gmail.com",\r\n"password":"123456",\r\n"name":"jason todd",\r\n"region":"bangkok",\r\n"pictureurl":"https://kasetchana.s3.us-west-1.amazonaws.com/userResult/61475d58a994ea86a29ca9de/f88a614853a17f8e4a1bd3885051c162.jpeg"}''';
-
-                // http.StreamedResponse response = await request.send();
-
-                // if (response.statusCode == 200) {
-                //   print(await response.stream.bytesToString());
-                //   Route route =
-                //       MaterialPageRoute(builder: (context) => Home());
-                //   Navigator.push(context, route);
-                // } else {
-                //   print(response.reasonPhrase);
-                // }
-
-                /*Route route = MaterialPageRoute(builder: (context) => Home());
-                Navigator.push(context, route);*/
               },
               child: Text(
                 'Register',
@@ -290,24 +263,9 @@ class Register extends StatelessWidget {
             Pin(size: 16.0, middle: 0.3057),
             child: GestureDetector(
               onTap: () async {
-                try {
-                  // var request = http.MultipartRequest('POST',
-                  //     Uri.parse('https://kasetchana.azurewebsites.net/images'));
-                  // request.files.add(await http.MultipartFile.fromPath(
-                  //     'photo', '/C:/Users/Lenovo/Desktop/jarjarbilng.jpg'));
-
-                  // http.StreamedResponse response = await request.send();
-
-                  // if (response.statusCode == 200) {
-                  //   print(await response.stream.bytesToString());
-                  // } else {
-                  //   print(response.reasonPhrase);
-                  // }
-                } catch (e) {
+                try {} catch (e) {
                   print(e);
                 }
-                /*Route route = MaterialPageRoute(builder: (context) => Home());
-                Navigator.push(context, route);*/
               },
               child: Text(
                 'Upload Picture',

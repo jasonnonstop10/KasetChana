@@ -7,14 +7,6 @@ import 'package:untitled/Register.dart';
 import 'package:untitled/model/auth.dart';
 
 import 'service/auth_service.dart';
-// import 'package:http/http.dart' as http;
-
-void postLogin() async {
-  // final urlLogin = Uri.parse("https://kasetchana.azurewebsites.net/login");
-  // http.Response response = await http.post(urlLogin);
-  // print(response.body);
-  // print(response.statusCode);
-}
 
 class Login extends StatefulWidget {
   Login({Key? key}) : super(key: key);
@@ -24,13 +16,11 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
-  String email = '';
-  String password = '';
   @override
   Widget build(BuildContext context) {
     TextEditingController emailController = new TextEditingController();
     TextEditingController passwordController = new TextEditingController();
-    // postLogin();
+
     return Scaffold(
       backgroundColor: const Color(0xffffffff),
       body: Stack(
@@ -339,9 +329,6 @@ class _LoginState extends State<Login> {
                 } else {
                   print("[Login Failed]: wrong cerdential");
                 }
-
-                /*Route route = MaterialPageRoute(builder: (context) => Home());
-                Navigator.push(context, route);*/
               },
               child: Text(
                 'Login',

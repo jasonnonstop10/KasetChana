@@ -1,31 +1,15 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:adobe_xd/pinned.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-// import 'package:http/http.dart';
 import 'package:untitled/KasetPrice.dart';
 import 'package:untitled/Kasetplan.dart';
 import 'package:untitled/KasetplanUpdate.dart';
 import 'package:untitled/Login.dart';
 import 'package:untitled/PortMain.dart';
 import 'package:untitled/Profile.dart';
-import 'package:untitled/Register.dart';
 import 'package:untitled/Watchlist.dart';
-// import 'package:http/http.dart' as http;
 
-void GetWeather() async {
-  // var request = http.Request(
-  //     'GET', Uri.parse('https://kasetchana.azurewebsites.net/weather'));
-
-  // http.StreamedResponse response = await request.send();
-
-  // if (response.statusCode == 200) {
-  //   print(await response.stream.bytesToString());
-  // } else {
-  //   print(response.reasonPhrase);
-  // }
-}
+void GetWeather() async {}
 
 class Home extends StatelessWidget {
   Home({Key? key}) : super(key: key);
