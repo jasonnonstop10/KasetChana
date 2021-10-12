@@ -19,11 +19,12 @@ class Register extends StatelessWidget {
   Register({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    String name;
-    String email;
-    String password;
-    String pictureurl;
-    String region;
+    TextEditingController nameController = new TextEditingController();
+    TextEditingController emailController = new TextEditingController();
+    TextEditingController passwordController = new TextEditingController();
+    TextEditingController passwordController1 = new TextEditingController();
+    TextEditingController regionController = new TextEditingController();
+    TextEditingController pictureController = new TextEditingController();
     return Scaffold(
       backgroundColor: const Color(0xffffffff),
       body: Stack(
@@ -93,16 +94,14 @@ class Register extends StatelessWidget {
                 Pinned.fromPins(
                   Pin(size: 153.0, start: 10.5),
                   Pin(start: 0.0, end: 0.0),
-                  child: TextFormField(
-                    onChanged: (value) {
-                      name = value;
-                    },
+                  child: TextField(
+                    controller: nameController,
                     decoration:
                         new InputDecoration(hintText: "Enter your name"),
                     style: TextStyle(
                       fontFamily: 'Uber Move Text',
                       fontSize: 20,
-                      color: const Color(0x66676767),
+                      color: const Color(0xFF000000),
                     ),
                     textAlign: TextAlign.left,
                   ),
@@ -113,15 +112,13 @@ class Register extends StatelessWidget {
           Pinned.fromPins(
             Pin(size: 151.0, start: 40.0),
             Pin(size: 48.0, middle: 0.5035),
-            child: TextFormField(
-              onChanged: (value) {
-                email = value;
-              },
+            child: TextField(
+              controller: emailController,
               decoration: new InputDecoration(hintText: "Enter your email"),
               style: TextStyle(
                 fontFamily: 'Uber Move Text',
                 fontSize: 20,
-                color: const Color(0x66676767),
+                color: const Color(0xFF000000),
               ),
               textAlign: TextAlign.left,
             ),
@@ -129,15 +126,14 @@ class Register extends StatelessWidget {
           Pinned.fromPins(
             Pin(size: 188.0, start: 40.0),
             Pin(size: 24.0, middle: 0.5757),
-            child: TextFormField(
-              onChanged: (value) {
-                password = value;
-              },
+            child: TextField(
+              controller: passwordController,
+              obscureText: true,
               decoration: new InputDecoration(hintText: "Enter your password"),
               style: TextStyle(
                 fontFamily: 'Uber Move Text',
                 fontSize: 20,
-                color: const Color(0x66676767),
+                color: const Color(0xFF000000),
               ),
               textAlign: TextAlign.left,
             ),
@@ -145,16 +141,15 @@ class Register extends StatelessWidget {
           Pinned.fromPins(
             Pin(size: 214.0, start: 40.0),
             Pin(size: 24.0, middle: 0.6617),
-            child: TextFormField(
-              onChanged: (value) {
-                password = value;
-              },
+            child: TextField(
+              controller: passwordController1,
+              obscureText: true,
               decoration:
                   new InputDecoration(hintText: "Confirm your password"),
               style: TextStyle(
                 fontFamily: 'Uber Move Text',
                 fontSize: 20,
-                color: const Color(0x66676767),
+                color: const Color(0xFF000000),
               ),
               textAlign: TextAlign.left,
             ),
@@ -165,13 +160,16 @@ class Register extends StatelessWidget {
             child: GestureDetector(
               onTap: () async {
                 final User? _user = await Auth.register(
-                  email: 'hi10gmail.com',
-                  password: '123123',
-                  name: 'test',
-                  region: 'asia',
+                  email: emailController.text,
+                  password: passwordController.text,
+                  name: nameController.text,
+                  region: regionController.text,
                   pictureUrl: 'hello',
                 );
-                if (_user != null) {
+                if (_user != null &&
+                    passwordController.text == passwordController1.text) {
+                  Route route = MaterialPageRoute(builder: (context) => Home());
+                  Navigator.push(context, route);
                   print("[Register Success]: ${_user.toString()}");
                 } else {
                   print("[Register Failed]: Already exist");
@@ -260,34 +258,15 @@ class Register extends StatelessWidget {
           Pinned.fromPins(
             Pin(size: 166.0, start: 40.0),
             Pin(size: 24.0, middle: 0.75),
-            child: Text(
-              'Select your region',
+            child: TextField(
+              controller: regionController,
+              decoration: new InputDecoration(hintText: "Select Your Region"),
               style: TextStyle(
                 fontFamily: 'Uber Move Text',
                 fontSize: 20,
-                color: const Color(0x66676767),
+                color: const Color(0xFF000000),
               ),
               textAlign: TextAlign.left,
-            ),
-          ),
-          Pinned.fromPins(
-            Pin(start: 29.5, end: 29.5),
-            Pin(size: 1.0, middle: 0.7754),
-            child: SvgPicture.string(
-              _svg_ukpqs,
-              allowDrawingOutsideViewBox: true,
-              fit: BoxFit.fill,
-            ),
-          ),
-          Pinned.fromPins(
-            Pin(size: 12.0, end: 44.0),
-            Pin(size: 7.4, middle: 0.745),
-            child:
-                // Adobe XD layer: 'ic_expand_more_24px' (shape)
-                SvgPicture.string(
-              _svg_funh41,
-              allowDrawingOutsideViewBox: true,
-              fit: BoxFit.fill,
             ),
           ),
           Pinned.fromPins(
