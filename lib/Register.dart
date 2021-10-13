@@ -19,6 +19,15 @@ class Register extends StatelessWidget {
     TextEditingController passwordController1 = new TextEditingController();
     TextEditingController regionController = new TextEditingController();
     TextEditingController pictureController = new TextEditingController();
+    String dropdownvalue = 'Bangkok';
+    var items = [
+      'Bangkok',
+      'Pathum thani',
+      'Nonthaburi',
+      'Samut prakan',
+      'Singburi',
+      'Other'
+    ];
     return Scaffold(
       backgroundColor: const Color(0xffffffff),
       body: Stack(
@@ -231,15 +240,12 @@ class Register extends StatelessWidget {
           Pinned.fromPins(
             Pin(size: 166.0, start: 40.0),
             Pin(size: 24.0, middle: 0.75),
-            child: TextField(
-              controller: regionController,
-              decoration: new InputDecoration(hintText: "Select Your Region"),
-              style: TextStyle(
-                fontFamily: 'Uber Move Text',
-                fontSize: 20,
-                color: const Color(0xFF000000),
-              ),
-              textAlign: TextAlign.left,
+            child: DropdownButton(
+              value: dropdownvalue,
+              icon: Icon(Icons.keyboard_arrow_down),
+              items: items.map((String items) {
+                return DropdownMenuItem(value: items, child: Text(items));
+              }).toList(),
             ),
           ),
           Pinned.fromPins(
