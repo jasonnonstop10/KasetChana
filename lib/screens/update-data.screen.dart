@@ -100,8 +100,10 @@ class _UpdateDataScreenState extends State<UpdateDataScreen> {
                             height: 150,
                             child: GoogleMap(
                               buildingsEnabled: false,
-                              myLocationEnabled: false,
+                              myLocationEnabled: true,
                               myLocationButtonEnabled: false,
+                              mapToolbarEnabled: false,
+                              zoomControlsEnabled: false,
                               mapType: MapType.terrain,
                               initialCameraPosition: CameraPosition(
                                 target: LatLng(

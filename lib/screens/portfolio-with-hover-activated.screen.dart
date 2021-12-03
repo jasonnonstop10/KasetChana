@@ -24,7 +24,7 @@ class _PortfolioWithHoverActivatedScreenState
   bool isLoading = true;
   Portfolio _portfolio = new Portfolio();
   final ScrollController _scrollController = ScrollController();
-  List<ChartSampleData> chartData = <ChartSampleData>[
+  List<ChartSampleData> _chartData = <ChartSampleData>[
     // ChartSampleData(x: 'RSS3 Rubber', y: 54, text: '54%'),
     // ChartSampleData(x: 'Fattening Pig', y: 30, text: '30%'),
     // ChartSampleData(x: 'Crude Palm Oil', y: 26, text: '26%'),
@@ -41,12 +41,12 @@ class _PortfolioWithHoverActivatedScreenState
   }
 
   Future<void> onIniteData() async {
-    this.chartData = <ChartSampleData>[];
+    this._chartData = <ChartSampleData>[];
     await PortfolioService().findOne().then((res) => setState(() {
           this._portfolio = res;
 
           this._portfolio.items.forEach((element) {
-            this.chartData.add(ChartSampleData(
+            this._chartData.add(ChartSampleData(
                 x: element.name,
                 y: double.parse(element.volume.toString()),
                 text: '${element.volume}'));
@@ -272,7 +272,7 @@ class _PortfolioWithHoverActivatedScreenState
       DoughnutSeries<ChartSampleData, String>(
           radius: '100%',
           explode: false,
-          dataSource: this.chartData,
+          dataSource: this._chartData,
           xValueMapper: (ChartSampleData data, _) => data.x,
           yValueMapper: (ChartSampleData data, _) => data.y,
           dataLabelMapper: (ChartSampleData data, _) => data.text,

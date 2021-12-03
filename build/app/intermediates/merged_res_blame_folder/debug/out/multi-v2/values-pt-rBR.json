@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\taipu\\Documents\\kasetchana_flutter-main\\kasetchana_flutter-main\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-pt-rBR\\values-pt-rBR.xml",
+            "outputFile": "C:\\Users\\taipu\\Documents\\GitHub\\KasetChana\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-pt-rBR\\values-pt-rBR.xml",
             "map": [
                 {
                     "source": "C:\\Users\\taipu\\.gradle\\caches\\transforms-2\\files-2.1\\7c879cb157fab2c9a5d74c3d70fd64e3\\jetified-play-services-base-17.0.0\\res\\values-pt-rBR\\values.xml",

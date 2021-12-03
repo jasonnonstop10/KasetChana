@@ -72,8 +72,10 @@ class _KasetPlantWithMapScreenState extends State<KasetPlantWithMapScreen> {
                             height: MediaQuery.of(context).size.height / 1.7,
                             child: GoogleMap(
                               buildingsEnabled: false,
-                              myLocationEnabled: false,
+                              myLocationEnabled: true,
                               myLocationButtonEnabled: false,
+                              mapToolbarEnabled: false,
+                              zoomControlsEnabled: false,
                               mapType: MapType.terrain,
                               initialCameraPosition: CameraPosition(
                                 target: LatLng(
