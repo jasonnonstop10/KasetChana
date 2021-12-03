@@ -41,12 +41,12 @@ class _HomeScreenState extends State<HomeScreen> {
   bool isLoading = true;
   String date = DateFormat('yyyy-MM-dd').format(new DateTime(
       DateTime.now().year, DateTime.now().month, DateTime.now().day - 1));
-  int totalWelath = 0;
+  int totalWealth = 0;
 
   @override
   void initState() {
     this.onInitName();
-    this.onInitTotalWelath();
+    this.onInitTotalWealth();
     super.initState();
   }
 
@@ -65,9 +65,9 @@ class _HomeScreenState extends State<HomeScreen> {
             }));
   }
 
-  Future<void> onInitTotalWelath() async {
+  Future<void> onInitTotalWealth() async {
     await PortfolioService().getSummaryItems().then((res) => setState(() {
-          this.totalWelath = res;
+          this.totalWealth = res;
         }));
   }
 
@@ -228,7 +228,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                 PortfolioWithHoverActivatedScreen
                                                     .routeName)
                                             .whenComplete(
-                                                () => this.onInitTotalWelath()),
+                                                () => this.onInitTotalWealth()),
                                         child: Card(
                                             elevation: 10,
                                             margin: EdgeInsets.zero,
@@ -247,7 +247,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                   crossAxisAlignment:
                                                       CrossAxisAlignment.center,
                                                   children: [
-                                                    Text("$totalWelath Bt",
+                                                    Text("$totalWealth Bt",
                                                         style: TextStyle(
                                                             color: AppColors
                                                                 .primaryColor,
@@ -256,7 +256,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                             fontSize: 24),
                                                         textAlign:
                                                             TextAlign.center),
-                                                    Text("Total Welath"),
+                                                    Text("Total Wealth"),
                                                   ],
                                                 ))),
                                       ),

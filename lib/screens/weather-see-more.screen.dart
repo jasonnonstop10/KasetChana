@@ -89,7 +89,7 @@ class _WeatherSeeMoreScreenState extends State<WeatherSeeMoreScreen> {
                               child: ElevatedButton(
                                 onPressed: () => Navigator.of(context)
                                     .pushNamed(RainMonthScreen.routeName),
-                                child: Text("Rain-Forcast",
+                                child: Text("Rain-Forecast",
                                     style:
                                         TextStyle(fontWeight: FontWeight.bold)),
                               ),

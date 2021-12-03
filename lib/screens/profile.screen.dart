@@ -103,7 +103,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             fontSize: 18,
                             fontWeight: FontWeight.bold)),
                     SizedBox(height: 40),
-                    Text("Notifition Setting",
+                    Text("Notification Setting",
                         style: TextStyle(
                             color: Colors.black,
                             fontSize: 18,
